@@ -1,5 +1,5 @@
-SRC = point.cpp
-TEST_SRC = test_point.cpp
+SRC = stack.cpp
+TEST_SRC = test_stack.cpp
 
 all: $(SRC) $(TEST_SRC)
 	g++ $^ -lgtest -lgtest_main -lpthread -o all.out

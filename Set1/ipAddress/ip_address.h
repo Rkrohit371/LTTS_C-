@@ -15,6 +15,7 @@ class IPAddress {
         IPAddress();
         IPAddress(uint8_t a, uint8_t b, uint8_t c, uint8_t d);    //a,b,c,d vals
         IPAddress(std::string value);                    //"a.b.c.d" format
+        uint32_t getIpValue();
         bool isLoopBack() const;
         IPClass getIPClass() const;
         void dispay() const;

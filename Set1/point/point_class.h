@@ -16,6 +16,8 @@ class Point {
         Point(const Point&);
         double distanceFromOrigin()  const;
         Quadrant quadrant() const;
+        int getmx();
+        int getmy();
         bool isOrigin() const;
         bool isOnXAxis() const;
         bool isOnYAxis() const;

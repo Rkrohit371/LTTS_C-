@@ -3,8 +3,6 @@
 #include<math.h>
 
 
-
-
 Point:: Point() : m_x(0), m_y(0) {};
 
 Point::Point(int x, int y) {
@@ -34,6 +32,15 @@ Quadrant Point::quadrant() const {
         return Q4;
     }
 }
+
+int Point::getmx() {
+    return m_x;
+}
+
+int Point::getmy() {
+    return m_y;
+}
+
 bool Point::isOrigin() const {
     if(m_x == 0 && m_y == 0){
         return true;

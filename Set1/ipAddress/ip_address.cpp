@@ -78,6 +78,10 @@ IPAddress::IPAddress(std::string value) {
     
 }                       //"a.b.c.d" format
 
+uint32_t IPAddress::getIpValue() {
+    return ipval;
+}
+
 bool IPAddress::isLoopBack() const {
     if(ipval == 2130706433) {
         return true;

@@ -19,3 +19,8 @@ TEST(Manager, ParamConstructorManager) {
     ASSERT_EQ(10, e1.getExp());
     ASSERT_EQ(10, e1.getreportees());
 }
+
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

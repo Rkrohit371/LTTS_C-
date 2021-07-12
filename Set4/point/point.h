@@ -19,6 +19,8 @@ class Point {
         void distanceFromOrigin();
         Quadrant quadrant();
         void display();
+        T getmx();
+        T getmy();
 };
 
 #endif

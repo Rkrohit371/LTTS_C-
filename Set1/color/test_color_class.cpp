@@ -8,3 +8,8 @@ TEST(Color, EmptyConstructor) {
     ASSERT_EQ(0x0000FF, c1.getmb());
     ASSERT_EQ(BLUE, c1.getColortype());
 }
+
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

@@ -12,5 +12,4 @@ class Complex {
         T getImage();
         void display();
 };
-
 #endif

@@ -12,6 +12,16 @@ Point<T>::Point(T x, T y) {
 }
 
 template<typename T>
+T Point<T>::getmx() {
+    return m_x;
+}
+
+template<typename T>
+T Point<T>::getmy() {
+    return m_y;
+}
+
+template<typename T>
 void Point<T>::distanceFromOrigin() {
     T result;
     result = sqrt(m_x*m_x + m_y*m_y);

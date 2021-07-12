@@ -20,4 +20,7 @@ TEST(Account, ParamConstructor) {
     ASSERT_EQ(100000, a2.getBalance());
 }
 
-    
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

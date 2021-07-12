@@ -14,3 +14,8 @@ TEST(CreditAccount, ParamConstructorCredit) {
     ASSERT_EQ("Rohit", e1.getaccName());
     ASSERT_EQ(100, e1.getBalance());
 }
+
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

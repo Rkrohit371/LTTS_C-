@@ -40,3 +40,8 @@ TEST(Fraction, multiply) {
     ASSERT_EQ(20, c3.getNumerator());
     ASSERT_EQ(20, c3.getDenominator());
 }
+
+int main(int argc, char **argv) {
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}

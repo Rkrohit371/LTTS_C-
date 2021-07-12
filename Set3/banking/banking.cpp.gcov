@@ -1,0 +1,172 @@
+        -:    0:Source:banking.cpp
+        -:    0:Graph:banking.gcno
+        -:    0:Data:banking.gcda
+        -:    0:Runs:1
+        -:    1:#include<iostream>
+        -:    2:#include "banking.h"
+        -:    3:
+    #####:    4:AccountBase::AccountBase():m_accName("N/A"), m_accNumber("N/A"),m_balance(0) {};
+    %%%%%:    4-block  0
+    %%%%%:    4-block  1
+    %%%%%:    4-block  2
+    $$$$$:    4-block  3
+    $$$$$:    4-block  4
+    $$$$$:    4-block  5
+    $$$$$:    4-block  6
+    $$$$$:    4-block  7
+        -:    5:
+        2:    6:AccountBase::AccountBase(std::string name, std::string accNumber, 
+        2:    7:        double balance) {
+        2:    7-block  0
+    $$$$$:    7-block  1
+    $$$$$:    7-block  2
+        2:    8:    m_accNumber = accNumber;
+        2:    9:    m_accName = name;
+        2:    9-block  0
+        2:   10:    m_balance = balance;
+        2:   11:}
+        2:   11-block  0
+        -:   12:
+    #####:   13:AccountBase::AccountBase(std::string name, 
+    #####:   14:        std::string accNumber):m_balance(100) {
+    %%%%%:   14-block  0
+    $$$$$:   14-block  1
+    $$$$$:   14-block  2
+    #####:   15:    m_accNumber = accNumber;
+    #####:   16:    m_accName = name;
+    %%%%%:   16-block  0
+    #####:   17:}
+    %%%%%:   17-block  0
+        -:   18:
+    #####:   19:AccountBase::AccountBase(const AccountBase& obj) {
+    %%%%%:   19-block  0
+    $$$$$:   19-block  1
+    $$$$$:   19-block  2
+    #####:   20:    m_accName = obj.m_accName;
+    #####:   21:    m_accNumber = obj.m_accNumber;
+    %%%%%:   21-block  0
+    #####:   22:    m_balance = obj.m_balance;
+    #####:   23:}
+    %%%%%:   23-block  0
+        -:   24:
+    #####:   25:std::string AccountBase::getaccNumber() {
+    #####:   26:    return m_accNumber;
+    %%%%%:   26-block  0
+        -:   27:}
+        -:   28:
+    #####:   29:std::string AccountBase::getaccName() {
+    #####:   30:    return m_accName;
+    %%%%%:   30-block  0
+        -:   31:}
+        -:   32:
+    #####:   33:double AccountBase::getBalance() {
+    #####:   34:    return m_balance;
+    %%%%%:   34-block  0
+        -:   35:}
+        -:   36:
+    #####:   37:SavingsAccount::SavingsAccount() {};
+    %%%%%:   37-block  0
+        -:   38:
+        1:   39:SavingsAccount::SavingsAccount(std::string name,std::string accNumber, 
+        1:   40:        double balance):AccountBase(name, accNumber, balance) {};
+        1:   40-block  0
+        1:   40-block  1
+        1:   40-block  2
+    $$$$$:   40-block  3
+    $$$$$:   40-block  4
+    $$$$$:   40-block  5
+        -:   41:        
+    #####:   42:SavingsAccount::SavingsAccount(std::string name,
+    #####:   43:        std::string accNumber):AccountBase(name, accNumber) {};
+    %%%%%:   43-block  0
+    %%%%%:   43-block  1
+    %%%%%:   43-block  2
+    $$$$$:   43-block  3
+    $$$$$:   43-block  4
+    $$$$$:   43-block  5
+        -:   44:
+        1:   45:std::string SavingsAccount::getaccNumber() {
+        1:   46:    return m_accNumber;
+        1:   46-block  0
+        -:   47:}
+        -:   48:
+        1:   49:std::string SavingsAccount::getaccName() {
+        1:   50:    return m_accName;
+        1:   50-block  0
+        -:   51:}
+        -:   52:
+        1:   53:double SavingsAccount::getBalance() {
+        1:   54:    return m_balance;
+        1:   54-block  0
+        -:   55:}
+        -:   56:
+    #####:   57:void SavingsAccount:: display() const {
+    #####:   58:    std::cout<<"Account Name: "<<m_accName<<std::endl;
+    %%%%%:   58-block  0
+    #####:   59:    std::cout<<"Account Number: "<<m_accNumber<<std::endl;
+    #####:   60:    std::cout<<"Account Name: "<<m_balance<<std::endl;
+    #####:   61:    std::cout<<"----------------------------------"<<std::endl;
+    #####:   62:}
+        -:   63:
+    #####:   64:CreditAccount::CreditAccount() {};
+    %%%%%:   64-block  0
+        -:   65:
+        1:   66:CreditAccount::CreditAccount(std::string name,std::string accNumber, 
+        1:   67:        double balance):AccountBase(name, accNumber, balance) {};
+        1:   67-block  0
+        1:   67-block  1
+        1:   67-block  2
+    $$$$$:   67-block  3
+    $$$$$:   67-block  4
+    $$$$$:   67-block  5
+        -:   68:        
+    #####:   69:CreditAccount::CreditAccount(std::string name,
+    #####:   70:        std::string accNumber):AccountBase(name, accNumber) {};
+    %%%%%:   70-block  0
+    %%%%%:   70-block  1
+    %%%%%:   70-block  2
+    $$$$$:   70-block  3
+    $$$$$:   70-block  4
+    $$$$$:   70-block  5
+        -:   71:
+    #####:   72:void CreditAccount:: display() const {
+    #####:   73:    std::cout<<"Account Name: "<<m_accName<<std::endl;
+    %%%%%:   73-block  0
+    #####:   74:    std::cout<<"Account Number: "<<m_accNumber<<std::endl;
+    #####:   75:    std::cout<<"Account Name: "<<m_balance<<std::endl;
+    #####:   76:    std::cout<<"----------------------------------"<<std::endl;
+    #####:   77:}
+        -:   78:
+        1:   79:std::string CreditAccount::getaccNumber() {
+        1:   80:    return m_accNumber;
+        1:   80-block  0
+        -:   81:}
+        -:   82:
+        1:   83:std::string CreditAccount::getaccName() {
+        1:   84:    return m_accName;
+        1:   84-block  0
+        -:   85:}
+        -:   86:
+        1:   87:double CreditAccount::getBalance() {
+        1:   88:    return m_balance;
+        1:   88-block  0
+        -:   89:}
+        -:   90:
+    #####:   91:void CreditAccount:: credit(double amount) {
+    #####:   92:    m_balance += amount;
+    #####:   93:}
+    #####:   94:void CreditAccount:: debit(double amount) {
+    #####:   95:    m_balance -= amount;
+    #####:   96:}
+        -:   97:
+    #####:   98:void SavingsAccount:: credit(double amout) {
+    #####:   99:    m_balance += amout;
+    #####:  100:}
+    #####:  101:void SavingsAccount:: debit(double amount) {
+    #####:  102:    m_balance -= amount;
+    #####:  103:}
+        -:  104:
+    #####:  105:double AccountBase::getBalance() const {
+    #####:  106:    return m_balance;
+    %%%%%:  106-block  0
+        -:  107:}

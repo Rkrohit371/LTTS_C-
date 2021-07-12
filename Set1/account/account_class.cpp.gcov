@@ -1,0 +1,97 @@
+        -:    0:Source:account_class.cpp
+        -:    0:Graph:account_class.gcno
+        -:    0:Data:account_class.gcda
+        -:    0:Runs:1
+        -:    1:#include<iostream>
+        -:    2:#include "account_class.h"
+        -:    3:
+        1:    4:Account::Account():m_accName("N/A"),
+        1:    5:    m_accNumber("N/A"),m_balance(0) {};
+        1:    5-block  0
+        1:    5-block  1
+        1:    5-block  2
+    $$$$$:    5-block  3
+    $$$$$:    5-block  4
+    $$$$$:    5-block  5
+    $$$$$:    5-block  6
+    $$$$$:    5-block  7
+        -:    6:
+        1:    7:Account::Account(std::string accNumber, std::string accName, double balance) {
+        1:    7-block  0
+    $$$$$:    7-block  1
+    $$$$$:    7-block  2
+        1:    8:    m_accNumber = accNumber;
+        1:    9:    m_accName = accName;
+        1:    9-block  0
+        1:   10:    m_balance = balance;
+        1:   11:}
+        1:   11-block  0
+        -:   12:
+    #####:   13:Account:: Account(std::string accNumber, std::string accName):m_balance(100) {
+    %%%%%:   13-block  0
+    $$$$$:   13-block  1
+    $$$$$:   13-block  2
+    #####:   14:    m_accNumber = accNumber;
+    #####:   15:    m_accName = accName;
+    %%%%%:   15-block  0
+    #####:   16:}
+    %%%%%:   16-block  0
+        -:   17:
+        1:   18:Account::Account(const Account& obj) {
+        1:   18-block  0
+    $$$$$:   18-block  1
+    $$$$$:   18-block  2
+        1:   19:    m_accNumber = obj.m_accNumber;
+        1:   20:    m_accName = obj.m_accName;
+        1:   20-block  0
+        1:   21:    m_balance = obj.m_balance;
+        1:   22:}
+        1:   22-block  0
+        -:   23:
+        3:   24:std::string Account::getAccName() {
+        3:   25:    return m_accName;
+        3:   25-block  0
+        -:   26:}
+        -:   27:
+        3:   28:std::string Account::getAccNumber() {
+        3:   29:    return m_accNumber;
+        3:   29-block  0
+        -:   30:}
+        -:   31:
+    #####:   32:double Account::getAccBalance() {
+    #####:   33:    return m_balance;
+    %%%%%:   33-block  0
+        -:   34:}
+        -:   35:
+    #####:   36:void Account:: debit(double balance) {
+    #####:   37:    if((m_balance-balance) < 0) {
+    %%%%%:   37-block  0
+    #####:   38:        std::cout<<"Not enough balance"<<std::endl;
+    %%%%%:   38-block  0
+        -:   39:    } else {
+    #####:   40:        m_balance -= balance;
+    #####:   41:        std::cout<<balance<<" Amount Debited"<<std::endl;
+    %%%%%:   41-block  0
+        -:   42:    }
+    #####:   43:}
+        -:   44:
+    #####:   45:void Account:: credit(double balance) {
+    #####:   46:    m_balance += balance;
+    #####:   47:    std::cout<<balance<<" Amount credited"<<std::endl;
+    %%%%%:   47-block  0
+    #####:   48:}
+        3:   49:double Account:: getBalance() const {
+        3:   50:    return m_balance;
+        3:   50-block  0
+        -:   51:}
+        -:   52:
+    #####:   53:void Account:: display() const {
+    #####:   54:    std::cout<<"-----------------------------------"<<std::endl;
+    %%%%%:   54-block  0
+    #####:   55:    std::cout<<"Account Number: "<<m_accNumber<<std::endl;
+    #####:   56:    std::cout<<"Account Name: "<<m_accName<<std::endl;
+    #####:   57:    std::cout<<"Account Balance: "<<m_balance<<std::endl;
+    #####:   58:    std::cout<<"-----------------------------------"<<std::endl;
+    #####:   59:}
+        -:   60:
+        -:   61:

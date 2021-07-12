@@ -1,0 +1,242 @@
+        -:    0:Source:mytime.cpp
+        -:    0:Graph:mytime.gcno
+        -:    0:Data:mytime.gcda
+        -:    0:Runs:1
+        -:    1:#include "mytime.h"
+        -:    2:#include<iostream>
+        -:    3:#include<string>
+        -:    4:#include<fstream>
+        -:    5:
+        1:    6:MyTime::MyTime():m_hours(0), m_minutes(0), m_seconds(1) {};
+        -:    7:
+    #####:    8:MyTime::MyTime(int h, int m, int s) {
+    #####:    9:    m_hours = h;
+    #####:   10:    m_minutes = m;
+    #####:   11:    m_seconds = s;
+    #####:   12:}
+        -:   13:
+    #####:   14:MyTime::MyTime(int h, int m):m_seconds(0) {
+    #####:   15:    m_hours = h;
+    #####:   16:    m_minutes = m;
+    #####:   17:}
+        -:   18:
+        1:   19:int MyTime::getHours() {
+        1:   20:    return m_hours;
+        1:   20-block  0
+        -:   21:}
+        -:   22:
+        1:   23:int MyTime::getMinutes() {
+        1:   24:    return m_minutes;
+        1:   24-block  0
+        -:   25:}
+        -:   26:
+        1:   27:int MyTime::getSeconds() {
+        1:   28:    return m_seconds;
+        1:   28-block  0
+        -:   29:}
+        -:   30:
+    #####:   31:MyTime MyTime::operator+(const MyTime& time) {
+    #####:   32:    MyTime temp;
+    %%%%%:   32-block  0
+    #####:   33:    temp.m_hours = m_hours + time.m_hours;
+    #####:   34:    temp.m_minutes = m_minutes + time.m_minutes;
+    #####:   35:    temp.m_seconds = m_seconds + time.m_seconds;
+    #####:   36:    if(temp.m_seconds >= 60) {
+    #####:   37:        temp.m_seconds -= 60;
+    #####:   38:        temp.m_minutes += 1;
+    %%%%%:   38-block  0
+        -:   39:    }
+    #####:   40:    if(temp.m_minutes >= 60) {
+    %%%%%:   40-block  0
+    #####:   41:        temp.m_minutes -= 60;
+    #####:   42:        temp.m_hours += 1;
+    %%%%%:   42-block  0
+        -:   43:    }
+        -:   44:
+    #####:   45:    return temp;
+    %%%%%:   45-block  0
+        -:   46:}
+        -:   47:
+    #####:   48:MyTime MyTime::operator-(const MyTime& time) {
+    #####:   49:    MyTime temp;
+    %%%%%:   49-block  0
+    #####:   50:    if(time.m_seconds > m_seconds) {
+    #####:   51:        m_seconds += 60;
+    #####:   52:        m_minutes -= 1;
+    %%%%%:   52-block  0
+        -:   53:    }
+    #####:   54:    if(time.m_minutes > m_minutes) {
+    %%%%%:   54-block  0
+    #####:   55:        m_minutes += 60;
+    #####:   56:        m_hours -= 1;
+    %%%%%:   56-block  0
+        -:   57:    }
+    #####:   58:    temp.m_hours = m_hours - time.m_hours;
+    #####:   59:    temp.m_minutes = m_minutes - time.m_minutes;
+    #####:   60:    temp.m_seconds = m_seconds - time.m_seconds;
+    #####:   61:    return temp;
+    %%%%%:   61-block  0
+        -:   62:}
+        -:   63:
+    #####:   64:MyTime& MyTime::operator++() {
+    #####:   65:    m_hours += 1;
+    #####:   66:    m_minutes += 1;
+    #####:   67:    m_seconds += 1;
+        -:   68:
+    #####:   69:    if(m_seconds >= 60) {
+    %%%%%:   69-block  0
+    #####:   70:        m_seconds = 0;
+    #####:   71:        m_minutes += 1;
+    %%%%%:   71-block  0
+        -:   72:    }
+    #####:   73:    if(m_minutes >= 60) {
+    %%%%%:   73-block  0
+    #####:   74:        m_minutes = 0;
+    #####:   75:        m_hours += 1;
+    %%%%%:   75-block  0
+        -:   76:    }
+        -:   77:
+    #####:   78:    return *this;
+    %%%%%:   78-block  0
+        -:   79:}
+        -:   80:
+    #####:   81:MyTime MyTime::operator++(int) {
+    #####:   82:    MyTime duplicate(*this);
+    #####:   83:    m_hours += 1;
+    #####:   84:    m_minutes += 1;
+    #####:   85:    m_seconds += 1;
+        -:   86:
+    #####:   87:    if(m_seconds >= 60) {
+    %%%%%:   87-block  0
+    #####:   88:        m_seconds = 0;
+    #####:   89:        m_minutes += 1;
+    %%%%%:   89-block  0
+        -:   90:    }
+    #####:   91:    if(m_minutes >= 60) {
+    %%%%%:   91-block  0
+    #####:   92:        m_minutes = 0;
+    #####:   93:        m_hours += 1;
+    %%%%%:   93-block  0
+        -:   94:    }
+        -:   95:
+    #####:   96:    return duplicate; 
+    %%%%%:   96-block  0
+        -:   97:}
+        -:   98:
+    #####:   99:MyTime& MyTime::operator+=(const MyTime& time) {
+    #####:  100:    this->m_hours += time.m_hours;
+    #####:  101:    this->m_minutes += time.m_minutes;
+    #####:  102:    this->m_seconds += time.m_seconds;
+        -:  103:
+    #####:  104:    if(this->m_seconds >= 60) {
+    %%%%%:  104-block  0
+    #####:  105:        this->m_seconds = 0;
+    #####:  106:        this->m_minutes += 1;
+    %%%%%:  106-block  0
+        -:  107:    }
+    #####:  108:    if(this->m_minutes >= 60) {
+    %%%%%:  108-block  0
+    #####:  109:        this->m_minutes = 0;
+    #####:  110:        this->m_hours += 1;
+    %%%%%:  110-block  0
+        -:  111:    }
+        -:  112:
+    #####:  113:    return *this;
+    %%%%%:  113-block  0
+        -:  114:}
+        -:  115:
+    #####:  116:MyTime MyTime::operator+(int) {
+    #####:  117:    m_hours = +m_hours;
+    #####:  118:    m_minutes = +m_minutes;
+    #####:  119:    m_seconds = +m_seconds;
+        -:  120:
+    #####:  121:    return MyTime(m_hours, m_minutes, m_seconds);
+    %%%%%:  121-block  0
+        -:  122:}
+        -:  123:
+    #####:  124:MyTime MyTime::operator-(int) {
+    #####:  125:    m_hours = -m_hours;
+    #####:  126:    m_minutes = -m_minutes;
+    #####:  127:    m_seconds = -m_seconds;
+        -:  128:
+    #####:  129:    return MyTime(m_hours, m_minutes, m_seconds);
+    %%%%%:  129-block  0
+        -:  130:}
+        -:  131:
+    #####:  132:bool MyTime::operator==(const MyTime& time) {
+    #####:  133:    if(m_hours == time.m_hours && m_minutes == time.m_minutes && m_seconds == time.m_seconds) {
+    %%%%%:  133-block  0
+    %%%%%:  133-block  1
+    %%%%%:  133-block  2
+    #####:  134:        return 1;
+    %%%%%:  134-block  0
+        -:  135:    }
+    #####:  136:    return 0;
+    %%%%%:  136-block  0
+        -:  137:}
+        -:  138:
+    #####:  139:bool MyTime::operator>(const MyTime& time) {
+    #####:  140:    if(m_hours > time.m_hours) {
+    %%%%%:  140-block  0
+    #####:  141:        return 1;
+    %%%%%:  141-block  0
+    #####:  142:    } else if(m_hours == time.m_hours && m_minutes > time.m_minutes) {
+    %%%%%:  142-block  0
+    %%%%%:  142-block  1
+    #####:  143:        return 1;
+    %%%%%:  143-block  0
+    #####:  144:    } else if(m_hours == time.m_hours && m_minutes == time.m_minutes && m_seconds > time.m_seconds){
+    %%%%%:  144-block  0
+    %%%%%:  144-block  1
+    %%%%%:  144-block  2
+    #####:  145:        return 1;
+    %%%%%:  145-block  0
+    #####:  146:    } else if(m_hours == time.m_hours && m_minutes == time.m_minutes && m_seconds == time.m_seconds) {
+    %%%%%:  146-block  0
+    %%%%%:  146-block  1
+    %%%%%:  146-block  2
+    #####:  147:        return 1;
+    %%%%%:  147-block  0
+        -:  148:    }
+    #####:  149:    return 0;
+    %%%%%:  149-block  0
+        -:  150:}
+        -:  151:
+    #####:  152:bool MyTime::operator<(const MyTime& time) {
+    #####:  153:    if(m_hours > time.m_hours) {
+    %%%%%:  153-block  0
+    #####:  154:        return 0;
+    %%%%%:  154-block  0
+    #####:  155:    } else if(m_hours == time.m_hours && m_minutes > time.m_minutes) {
+    %%%%%:  155-block  0
+    %%%%%:  155-block  1
+    #####:  156:        return 0;
+    %%%%%:  156-block  0
+    #####:  157:    } else if(m_hours == time.m_hours && m_minutes == time.m_minutes && m_seconds > time.m_seconds){
+    %%%%%:  157-block  0
+    %%%%%:  157-block  1
+    %%%%%:  157-block  2
+    #####:  158:        return 0;
+    %%%%%:  158-block  0
+    #####:  159:    } else if(m_hours == time.m_hours && m_minutes == time.m_minutes && m_seconds == time.m_seconds){
+    %%%%%:  159-block  0
+    %%%%%:  159-block  1
+    %%%%%:  159-block  2
+    #####:  160:        return 0;
+    %%%%%:  160-block  0
+        -:  161:    }
+    #####:  162:    return 1;
+    %%%%%:  162-block  0
+        -:  163:}
+        -:  164:
+    #####:  165:std::ostream& operator<<(std::ostream &output, const MyTime &temp) {
+    #####:  166:    output<<"Time is: "<<temp.m_hours<<"h:"<<temp.m_minutes<<"m:"<<temp.m_seconds<<"s"<<std::endl;
+    %%%%%:  166-block  0
+    #####:  167:    return output;
+        -:  168:}
+        -:  169:
+    #####:  170:void MyTime:: display() const{
+    #####:  171:    std::cout<<"Time is: "<<m_hours<<"h:"<<m_minutes<<"m:"<<m_seconds<<"s"<<std::endl;
+    %%%%%:  171-block  0
+    #####:  172:    std::cout<<"--------------------------------------"<<std::endl;
+    #####:  173:}

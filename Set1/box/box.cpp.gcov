@@ -1,0 +1,54 @@
+        -:    0:Source:box.cpp
+        -:    0:Graph:box.gcno
+        -:    0:Data:box.gcda
+        -:    0:Runs:1
+        -:    1:
+        -:    2:#include "box.h"
+        -:    3:#include<iostream>
+        -:    4:
+        -:    5:
+        1:    6:Box::Box(int length, int breadth, int height) {
+        1:    7:    m_length = length;
+        1:    8:    m_breadth = breadth;
+        1:    9:    m_height = height;
+        1:   10:}
+        -:   11:
+        1:   12:Box::Box():m_length(12), m_breadth(2),m_height(3) {
+        1:   13:    std::cout<<"This is Box class with no parameters."<<std::endl;
+        1:   13-block  0
+        1:   14:}
+        -:   15:
+        1:   16:Box::Box(int length): m_breadth(2),m_height(3) {
+        1:   17:    m_length = length;
+        1:   18:}
+        -:   19:
+        1:   20:Box::Box(const Box& obj){
+        1:   21:    m_length = obj.m_length;
+        1:   22:    m_breadth = obj.m_breadth;
+        1:   23:    m_height = obj.m_height;
+        1:   24:}
+        -:   25:
+        4:   26:int Box:: length() const {
+        4:   27:    return m_length;
+        4:   27-block  0
+        -:   28:}
+        -:   29:
+        4:   30:int Box::breadth() const {
+        4:   31:    return m_breadth;
+        4:   31-block  0
+        -:   32:}
+        4:   33:int Box::height() const {
+        4:   34:    return m_height;
+        4:   34-block  0
+        -:   35:}
+        4:   36:int Box::volume() const {
+        4:   37:    return m_length*m_breadth*m_height;
+        4:   37-block  0
+        -:   38:}
+        -:   39:
+    #####:   40:void Box::display() const {
+    #####:   41:    std::cout<<"m_length: "<<m_length<<std::endl;
+    %%%%%:   41-block  0
+    #####:   42:    std::cout<<"m_height: "<<m_height<<std::endl;
+    #####:   43:    std::cout<<"m_breadth: "<<m_breadth<<std::endl;
+    #####:   44:}
